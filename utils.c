@@ -6,11 +6,27 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:28:58 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/12 18:02:37 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:17:52 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	print_action(t_data *data, const char *mess, int id, long long time)
+{
+	pthread_mutex_lock(&data->mutex_lock);
+	time = current_time() - data->philo->start;
+	printf("*%lld* [%d] %s\n", time, id, mess);
+	pthread_mutex_unlock(&data->mutex_lock);
+}
+
+long long current_time(void)
+{
+	struct timeval time;
+	if (gettimeofday(&time, NULL) == -1)
+		printf("gettimeofday() error\n");
+	return (time.tv_sec * 1000 + time.tv_usec / 1000); // Convertir en millisecondes
+}
 
 int	ft_atoi(const char	*str)
 {
@@ -39,14 +55,5 @@ int	ft_atoi(const char	*str)
 	return (nb);
 }
 
-void	ft_destroy_mutex(t_data *data, pthread_mutex_t *forks)
-{
-	int	i;
 
-	i = 0;
-	while (i < data->nb_of_philosophers)
-	{
-		pthread_mutex_destroy(&forks[i]);
-		i++;
-	}
-}
+
