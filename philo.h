@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:44 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/12 17:24:33 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/13 02:16:48 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ typedef struct s_philo
 {
 	int				id;
 	int				nb_meals_eaten;
-
+	long long		last_meal_time;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
+	pthread_mutex_t	*mutex_lock;
 	
 }				t_philo;
 

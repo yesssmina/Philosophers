@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:21:30 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/12 18:02:21 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/13 02:18:07 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_create_thread(t_data *data, pthread_mutex_t *forks)
 	}
 
 }
-
+// lock_mutex deja ajoute a la structure, a ajouter autour des printf, mais comment?
 int	main(int ac, char **av)
 {
 	pthread_t		philosophers[MAX_PHILOSOPHERS];
