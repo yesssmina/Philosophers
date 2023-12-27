@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:25:18 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/22 12:24:22 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/27 03:43:23 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ int	ft_dead_flag(t_philo *philo)
 			&& philo[i].eat_flag_philo == 0)
 		{
 			print_action(philo->data, "died", philo[i].id);
-			pthread_mutex_unlock(philo[i].meal_mutex);
 
-			pthread_mutex_lock(philo[0].dead_mutex);
-			*philo->dead_flag_philo = 1;
-			pthread_mutex_unlock(philo[0].dead_mutex);
+			pthread_mutex_lock(&philo->data->dead_mutex);
+			philo->data->dead_flag_data = 1;
+			pthread_mutex_unlock(&philo->data->dead_mutex);
+			pthread_mutex_unlock(philo[i].meal_mutex);
 			return (1);
 		}
 		pthread_mutex_unlock(philo[i].meal_mutex);
 		i++;
+		//usleep(1);
 	}
 	return (0);
 }
@@ -60,9 +61,9 @@ int	ft_check_eat(t_philo *philo)
 	}
 	if (end_of_meal == philo->data->nb_of_philosophers)
 	{
-		pthread_mutex_lock(philo[0].dead_mutex);
-		*philo->dead_flag_philo = 1;
-		pthread_mutex_unlock(philo[0].dead_mutex);
+		pthread_mutex_lock(&philo->data->dead_mutex);
+		philo->data->dead_flag_data = 1;
+		pthread_mutex_unlock(&philo->data->dead_mutex);
 		return (1);
 	}
 	return (0);

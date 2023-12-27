@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:59:14 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/22 12:24:16 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/27 03:15:02 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_init_mutex(t_data *data, t_philo *philo, pthread_mutex_t *forks)
 	int	i;
 
 	i = 0;
-	data->dead_flag_data = 0;
 	data->philo = philo;
 	if ( pthread_mutex_init(&data->mutex_lock, NULL) != 0
 		|| pthread_mutex_init(&data->dead_mutex, NULL) != 0
@@ -49,6 +48,9 @@ void	ft_init_mutex(t_data *data, t_philo *philo, pthread_mutex_t *forks)
 		}
 		i++;
 	}
+	pthread_mutex_lock(&data->dead_mutex);
+	data->dead_flag_data = 0;
+	pthread_mutex_unlock(&data->dead_mutex);
 }
 
 void	ft_init_philos(t_data *data, t_philo *philo, pthread_mutex_t *forks, char **av)
@@ -58,20 +60,22 @@ void	ft_init_philos(t_data *data, t_philo *philo, pthread_mutex_t *forks, char *
 	i = 0;
 	while (i < data->nb_of_philosophers)
 	{
+		philo[i].i = 0;
 		philo[i].data = data;
 		philo[i].id = i + 1;
 		philo[i].eat_flag_philo = 0;
-		philo[i].dead_flag_philo = &data->dead_flag_data;
+		//philo[i].dead_flag_philo = &data->dead_flag_data;
 		philo[i].nb_meals_eaten = 0;
 		philo[i].start = current_time();
+		philo[i].time_since_last_meal = current_time();
 		philo[i].last_meal_time = current_time();
 		philo[i].meal_mutex = &data->mutex_lock;
-		philo[i].dead_mutex = &data->dead_mutex;
-		philo[i].left_fork = &forks[i];
+		//philo[i].dead_mutex = &data->dead_mutex;
+		philo[i].right_fork = &forks[i];
 		if (i == 0)
-			philo[i].right_fork = &forks[data->nb_of_philosophers - 1];
+			philo[i].left_fork = &forks[data->nb_of_philosophers - 1];
 		else
-			philo[i].right_fork = &forks[i - 1];	
+			philo[i].left_fork = &forks[i - 1];	
 		i++;
 	}
 }

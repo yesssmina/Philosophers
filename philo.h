@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:44 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/22 11:59:11 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/27 03:12:26 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ typedef struct s_philo
 	long long		last_meal_time;
 	long long		start;
 	int				eat_flag_philo;
-	int				*dead_flag_philo;
 	pthread_t		philo_thread;
-	pthread_mutex_t *dead_mutex;
 	pthread_mutex_t *meal_mutex;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	t_data			*data;
+
+	int				i;
+	int 			time_since_last_meal;
 }				t_philo;
 
 

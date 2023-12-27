@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:21:30 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/22 12:58:35 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/26 02:52:22 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,23 @@ int	main(int ac, char **av)
 
 //presque ok, verifier les tests, probleme de mort des fois, 
 //check mauvais arg
+
+	//if (data->nb_of_philosophers % 2 == 1)
+	//{
+	//	if (philo->id % 2 == 1 && philo->id != data->nb_of_philosophers)
+	//	{
+	//		ft_usleep(data->time_to_eat);
+	//	}
+	//	else if (philo->id % 2 == 0)
+	//	{
+	//		ft_usleep(data->time_to_eat * 2);
+	//	}
+	//}
+	//else
+	//{
+	//	if (philo->id % 2 == 0)
+	//	{
+	//		ft_usleep(data->time_to_eat);
+	//	}
+	//}
+	
