@@ -5,9 +5,13 @@ SRCS	=	main.c \
 			time.c \
 			destroy.c \
 			create_and_join.c \
+<<<<<<< HEAD
 			ft_checks.c \
 			ft_eat.c \
 			sleep_and_think.c \
+=======
+			checks.c \
+>>>>>>> 4a61101077f61d28a8ec75d61409c3520b9ff57e
 
 OBJS	= $(SRCS:.c=.o)
 NAME	= philo
