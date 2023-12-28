@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 01:30:59 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:34:54 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 03:07:40 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	wait_end_of_service(t_data *data, t_philo *philo)
 	if (data->nb_of_philosophers % 2 == 1 && philo->i != 0)
 	{
 		while (((current_time() - philo->start) - (philo->last_meal_time
-					- philo->start)) < (data->time_to_eat * 2 + 50))
-			usleep(1);
+					- philo->start)) < (data->time_to_eat * 2 + 10))
+			usleep(10);
 	}
 	if (data->nb_of_philosophers % 2 == 0 && philo->i != 0)
 	{
 		while (((current_time() - philo->start) - (philo->last_meal_time
-					- philo->start)) < (data->time_to_eat + 50))
-			usleep(1);
+					- philo->start)) < (data->time_to_eat + 10))
+			usleep(10);
 	}
 }
 
