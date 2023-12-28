@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 03:27:45 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 04:39:43 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 04:59:00 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_args(char **av)
 		printf("Error\nwrong time_to_sleep\n");
 		return (1);
 	}
-	if (av[5] && (ft_atoi(av[5]) < 0 || check_digit_args(av[5]) == 1))
+	if (av[5] && (ft_atoi(av[5]) <= 0 || check_digit_args(av[5]) == 1))
 	{
 		printf("Error\nwrong number of times each philosopher must eat\n");
 		return (1);
