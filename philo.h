@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:44 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:54:01 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 04:35:58 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <sys/time.h>
 
 # define MAX_PHILOSOPHERS 200
+# define MAX_TIME_ARG 4000
 
 typedef struct s_data	t_data;
 
@@ -77,5 +78,9 @@ int			ft_dead_flag(t_philo *philo);
 int			ft_check_eat(t_philo *philo);
 void		*ft_check(void *arg);
 int			dead_check(t_philo *philo);
+int			check_args(char **av);
+int			check_digit_args(char *arg);
+int			ft_isdigit(int c);
+int			check_max_allowed_arg(char **av);
 
 #endif

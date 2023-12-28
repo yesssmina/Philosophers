@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:21:30 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:55:27 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 04:36:26 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ int	main(int ac, char **av)
 		printf("Error\nargument count invalid\n");
 		return (1);
 	}
-	ft_init_args(&data, philosophers, av);
-	if (data.nb_of_philosophers > MAX_PHILOSOPHERS)
-	{
-		printf("Error\ntoo many philosophers\n");
+	if (check_args(av) == 1 || check_max_allowed_arg(av) == 1)
 		return (1);
-	}
+	ft_init_args(&data, philosophers, av);
 	ft_init_mutex(&data, philosophers, forks);
 	ft_init_philos(&data, philosophers, forks, av);
 	ft_create_thread(&data, forks, philosophers);
 	ft_join_thread(&data, philosophers, forks);
 	ft_destroy_mutex(&data, forks);
+	return (0);
 }
