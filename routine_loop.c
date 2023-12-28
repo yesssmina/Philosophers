@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy.c                                          :+:      :+:    :+:   */
+/*   routine_loop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 13:19:04 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 01:19:36 by sannagar         ###   ########.fr       */
+/*   Created: 2023/12/13 01:12:21 by sannagar          #+#    #+#             */
+/*   Updated: 2023/12/28 02:19:43 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_destroy_mutex(t_data *data, pthread_mutex_t *forks)
+void	*philo_routine(void *arg)
 {
-	int	i;
+	t_philo	*philo;
+	t_data	*data;
 
-	i = 0;
-	pthread_mutex_destroy(&data->mutex_lock);
-	pthread_mutex_destroy(&data->dead_mutex);
-	pthread_mutex_destroy(&data->print_mutex);
-	while (i < data->nb_of_philosophers)
+	philo = (t_philo *)arg;
+	data = philo->data;
+	if (data->nb_of_philosophers % 2 == 0 && philo->id % 2 == 0)
+		ft_usleep(data->time_to_eat);
+	while (!dead_check(philo))
 	{
-		pthread_mutex_destroy(&forks[i]);
-		i++;
+		ft_eat(data, philo);
+		ft_sleep(philo);
+		ft_think(philo);
+		philo->i++;
 	}
+	return (arg);
 }

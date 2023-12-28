@@ -1,10 +1,13 @@
 SRCS	=	main.c \
 			utils.c \
 			init.c \
-			routine.c \
+			routine_loop.c \
 			time.c \
 			destroy.c \
 			create_and_join.c \
+			ft_checks.c \
+			ft_eat.c \
+			sleep_and_think.c \
 
 OBJS	= $(SRCS:.c=.o)
 NAME	= philo
