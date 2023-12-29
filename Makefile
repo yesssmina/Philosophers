@@ -14,7 +14,7 @@ OBJS	= $(SRCS:.c=.o)
 NAME	= philo
 
 CC	= gcc
-FLAGS	= -Wall -Wextra -Werror -g3
+FLAGS	= -Wall -Wextra -Werror
 
 all:	$(NAME)
 
