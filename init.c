@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:59:14 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 13:14:13 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 14:05:29 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Initializes the data structure
 
-void	ft_init_args(t_data *data, t_philo *philo, char **av)
+void	ft_init_args(t_data *data, char **av)
 {
 	data->nb_of_philosophers = ft_atoi(av[1]);
 	data->time_to_die = ft_atoi(av[2]);
@@ -58,7 +58,7 @@ void	ft_init_mutex(t_data *data, t_philo *philo, pthread_mutex_t *forks)
 // Initializes philosophers' data
 
 void	ft_init_philos(t_data *data, t_philo *philo,
-	pthread_mutex_t *forks, char **av)
+	pthread_mutex_t *forks)
 {
 	int	i;
 
@@ -68,7 +68,6 @@ void	ft_init_philos(t_data *data, t_philo *philo,
 		philo[i].i = 0;
 		philo[i].data = data;
 		philo[i].id = i + 1;
-		philo[i].eat_flag_philo = 0;
 		philo[i].nb_meals_eaten = 0;
 		philo[i].start = current_time();
 		philo[i].time_since_last_meal = current_time();

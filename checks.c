@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:23:12 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/29 14:00:05 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 14:36:53 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	ft_dead_flag(t_philo *philo)
 	while (i < philo->data->nb_of_philosophers)
 	{
 		pthread_mutex_lock(philo[i].meal_mutex);
-		if (current_time() - philo[i].last_meal_time >= philo->data->time_to_die
-			&& philo[i].eat_flag_philo == 0)
+		if (current_time() - philo[i].last_meal_time >= philo->data->time_to_die)
 		{
 			print_action(philo->data, "died", philo[i].id);
 			pthread_mutex_lock(&philo->data->dead_mutex);
@@ -43,24 +42,28 @@ int	ft_dead_flag(t_philo *philo)
 int	ft_check_eat(t_philo *philo)
 {
 	int	i;
+	int	end_of_meal;
 
 	i = 0;
+	end_of_meal = 0;
 	if (philo->data->have_to_eat == -1)
 		return (0);
 	while (i < philo->data->nb_of_philosophers)
 	{
-		pthread_mutex_lock(&philo->data->meal_mutex);
-		if (philo[i].nb_meals_eaten < philo->data->have_to_eat)
-		{
-			pthread_mutex_unlock(&philo->data->meal_mutex);
-			return (0);
-		}
+		pthread_mutex_lock(philo[i].meal_mutex);
+		if (philo[i].nb_meals_eaten >= philo->data->have_to_eat)
+			end_of_meal++;
+		pthread_mutex_unlock(philo[i].meal_mutex);
 		i++;
 	}
-	pthread_mutex_lock(&philo->data->dead_mutex);
-	philo->data->dead_flag_data = 1;
-	pthread_mutex_unlock(&philo->data->dead_mutex);
-	return (1);
+	if (end_of_meal == philo->data->nb_of_philosophers)
+	{
+		pthread_mutex_lock(&philo->data->dead_mutex);
+		philo->data->dead_flag_data = 1;
+		pthread_mutex_unlock(&philo->data->dead_mutex);
+		return (1);
+	}
+	return (0);
 }
 
 // Continuously checks for death or completion of eating requirements of philo.

@@ -14,13 +14,13 @@ OBJS	= $(SRCS:.c=.o)
 NAME	= philo
 
 CC	= gcc
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -g3
 
 all:	$(NAME)
 
 %.o: %.c
 	@printf "\033[KCompiling: $<\r"
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@printf "\033[KCompiling: $$file\r"; \

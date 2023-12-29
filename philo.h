@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:44 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/29 02:16:12 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 14:06:20 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct s_philo
 	int				nb_meals_eaten;
 	long			last_meal_time;
 	long			start;
-	int				eat_flag_philo;
 	int				i;
 	int				time_since_last_meal;
 	t_data			*data;
@@ -55,10 +54,10 @@ typedef struct s_data
 }				t_data;
 
 int			ft_atoi(const char	*str);
-void		ft_init_args(t_data *data, t_philo *philo, char **av);
+void		ft_init_args(t_data *data, char **av);
 void		ft_init_mutex(t_data *data, t_philo *philo, pthread_mutex_t *forks);
 void		ft_init_philos(t_data *data, t_philo *philo,
-				pthread_mutex_t *forks, char **av);
+				pthread_mutex_t *forks);
 void		ft_create_thread(t_data *data, pthread_mutex_t *forks,
 				t_philo *philosophers);
 void		ft_join_thread(t_data *data, t_philo *philosophers,
