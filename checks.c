@@ -6,11 +6,13 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:23:12 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/27 13:49:48 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 02:02:19 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// Checks if any philosopher has died due to not eating within the time_to_die.
 
 int	ft_dead_flag(t_philo *philo)
 {
@@ -36,6 +38,8 @@ int	ft_dead_flag(t_philo *philo)
 	}
 	return (0);
 }
+
+// Checks if all philosophers have eaten the specified number of times.
 
 int	ft_check_eat(t_philo *philo)
 {
@@ -64,6 +68,8 @@ int	ft_check_eat(t_philo *philo)
 	return (0);
 }
 
+// Continuously checks for death or completion of eating requirements of philo.
+
 void	*ft_check(void *arg)
 {
 	t_philo	*philo;
@@ -78,6 +84,8 @@ void	*ft_check(void *arg)
 	}
 	return (arg);
 }
+
+// Checks the dead flag.
 
 int	dead_check(t_philo *philo)
 {

@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:44 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 04:35:58 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 02:16:12 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <stdio.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <limits.h>
 # include <pthread.h>
 # include <sys/time.h>
 
@@ -34,8 +31,8 @@ typedef struct s_philo
 	pthread_mutex_t	*right_fork;
 	int				id;
 	int				nb_meals_eaten;
-	long long		last_meal_time;
-	long long		start;
+	long			last_meal_time;
+	long			start;
 	int				eat_flag_philo;
 	int				i;
 	int				time_since_last_meal;
@@ -67,7 +64,7 @@ void		ft_create_thread(t_data *data, pthread_mutex_t *forks,
 void		ft_join_thread(t_data *data, t_philo *philosophers,
 				pthread_mutex_t *forks);
 void		ft_destroy_mutex(t_data *data, pthread_mutex_t *forks);
-long long	current_time(void);
+long		current_time(void);
 void		print_action(t_data *data, const char *mess, int id);
 void		ft_eat(t_data *data, t_philo *philo);
 void		ft_think(t_philo *philo);

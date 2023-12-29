@@ -6,11 +6,13 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:59:14 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:54:34 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:14:13 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// Initializes the data structure
 
 void	ft_init_args(t_data *data, t_philo *philo, char **av)
 {
@@ -23,6 +25,8 @@ void	ft_init_args(t_data *data, t_philo *philo, char **av)
 	else
 		data->have_to_eat = -1;
 }
+
+// Initializes mutexes for synchronization.
 
 void	ft_init_mutex(t_data *data, t_philo *philo, pthread_mutex_t *forks)
 {
@@ -50,6 +54,8 @@ void	ft_init_mutex(t_data *data, t_philo *philo, pthread_mutex_t *forks)
 	data->dead_flag_data = 0;
 	pthread_mutex_unlock(&data->dead_mutex);
 }
+
+// Initializes philosophers' data
 
 void	ft_init_philos(t_data *data, t_philo *philo,
 	pthread_mutex_t *forks, char **av)

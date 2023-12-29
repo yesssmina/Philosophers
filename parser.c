@@ -6,16 +6,20 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 03:27:45 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 04:59:00 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:19:34 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+// Checks if a character is a digit (0-9).
+
 int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
+
+// Verifies if all characters in a string are digits.
 
 int	check_digit_args(char *arg)
 {
@@ -30,6 +34,8 @@ int	check_digit_args(char *arg)
 	}
 	return (0);
 }
+
+// Validates command line arguments.
 
 int	check_args(char **av)
 {
@@ -57,6 +63,8 @@ int	check_args(char **av)
 	}
 	return (0);
 }
+
+// Checks if any command line argument values exceed the maximum allowed limits.
 
 int	check_max_allowed_arg(char **av)
 {

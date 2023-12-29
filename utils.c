@@ -6,16 +6,18 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:28:58 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:56:25 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 02:16:40 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+// Prints the action of a philosopher if the simulation is still running.
+
 void	print_action(t_data *data, const char *mess, int id)
 {
-	long long	time;
-	int			is_dead;
+	long	time;
+	int		is_dead;
 
 	pthread_mutex_lock(&data->dead_mutex);
 	is_dead = data->dead_flag_data;
@@ -24,10 +26,12 @@ void	print_action(t_data *data, const char *mess, int id)
 	{
 		pthread_mutex_lock(&data->print_mutex);
 		time = current_time() - data->philo->start;
-		printf("%lld %d %s\n", time, id, mess);
+		printf("%ld %d %s\n", time, id, mess);
 		pthread_mutex_unlock(&data->print_mutex);
 	}
 }
+
+// Converts a string to an integer.
 
 int	ft_atoi(const char	*str)
 {

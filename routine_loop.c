@@ -6,11 +6,13 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 01:12:21 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:19:43 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 01:59:14 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// Routine each philosopher thread follows.
 
 void	*philo_routine(void *arg)
 {
@@ -26,7 +28,7 @@ void	*philo_routine(void *arg)
 		ft_eat(data, philo);
 		ft_sleep(philo);
 		ft_think(philo);
-		philo->i++;
+		philo->i = 1;
 	}
 	return (arg);
 }

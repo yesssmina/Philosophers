@@ -6,11 +6,13 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:17:00 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:55:13 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 01:02:20 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// Custom sleep function to handle sleeping for specific milliseconds.
 
 int	ft_usleep(size_t mil)
 {
@@ -31,7 +33,9 @@ int	ft_usleep(size_t mil)
 	return (0);
 }
 
-long long	current_time(void)
+// Gets the current time in milliseconds.
+
+long	current_time(void)
 {
 	struct timeval	time;
 

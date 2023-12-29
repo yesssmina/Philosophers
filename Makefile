@@ -5,7 +5,7 @@ SRCS	=	main.c \
 			time.c \
 			destroy.c \
 			create_and_join.c \
-			ft_checks.c \
+			checks.c \
 			ft_eat.c \
 			sleep_and_think.c \
 			parser.c \

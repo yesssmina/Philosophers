@@ -6,11 +6,13 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:25:18 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:55:21 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:32:49 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// Creates threads for each philosopher and a monitoring thread.
 
 void	ft_create_thread(t_data *data, pthread_mutex_t *forks,
 	t_philo *philosophers)
@@ -36,6 +38,8 @@ void	ft_create_thread(t_data *data, pthread_mutex_t *forks,
 		i++;
 	}
 }
+
+// Waits for all philosopher threads and the monitoring thread to finish.
 
 void	ft_join_thread(t_data *data, t_philo *philosophers,
 	pthread_mutex_t *forks)

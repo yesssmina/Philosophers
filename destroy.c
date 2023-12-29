@@ -6,11 +6,13 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 13:19:04 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 02:54:59 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/28 13:31:43 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// Destroys all mutexes
 
 void	ft_destroy_mutex(t_data *data, pthread_mutex_t *forks)
 {
