@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:23:12 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/29 02:02:19 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 02:53:03 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	ft_dead_flag(t_philo *philo)
 		}
 		pthread_mutex_unlock(philo[i].meal_mutex);
 		i++;
-		usleep(1);
 	}
 	return (0);
 }
