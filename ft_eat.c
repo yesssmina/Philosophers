@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 01:30:59 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/29 14:34:47 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/29 15:15:06 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	wait_end_of_service(t_data *data, t_philo *philo)
 	{
 		while (((current_time() - philo->start) - (philo->last_meal_time
 					- philo->start)) < (data->time_to_eat * 2 + 10))
-			usleep(1);
+			usleep(10);
 	}
 	if (data->nb_of_philosophers % 2 == 0 && philo->i != 0)
 	{
