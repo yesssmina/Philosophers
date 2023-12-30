@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 03:27:45 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/28 13:19:34 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:00:17 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	check_digit_args(char *arg)
 {
 	int	i;
 
+	if (ft_strlen(arg) > 9)
+		return (1);
 	i = 0;
 	while (arg[i])
 	{

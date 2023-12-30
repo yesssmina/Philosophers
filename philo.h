@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:22:44 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/29 14:06:20 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:00:31 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 }				t_data;
 
 int			ft_atoi(const char	*str);
+size_t		ft_strlen(const char	*s);
 void		ft_init_args(t_data *data, char **av);
 void		ft_init_mutex(t_data *data, t_philo *philo, pthread_mutex_t *forks);
 void		ft_init_philos(t_data *data, t_philo *philo,

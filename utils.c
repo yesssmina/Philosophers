@@ -6,7 +6,7 @@
 /*   By: sannagar <sannagar@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:28:58 by sannagar          #+#    #+#             */
-/*   Updated: 2023/12/29 02:16:40 by sannagar         ###   ########.fr       */
+/*   Updated: 2023/12/30 00:45:48 by sannagar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,14 @@ int	ft_atoi(const char	*str)
 	}
 	nb = sign * nb;
 	return (nb);
+}
+
+size_t	ft_strlen(const char	*s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
